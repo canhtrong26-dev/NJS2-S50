@@ -12,7 +12,7 @@ export default async function WeatherPage() {
   );
   const forecastData = await forecastRes.json();
 
-  const dailyForecast = forecastData.list.filter((item) =>
+  const dailyForecast = forecastData.list.filter((item: any) =>
     item.dt_txt.includes('12:00:00')
   );
 
@@ -81,7 +81,7 @@ export default async function WeatherPage() {
             <h2 className="text-lg font-bold mb-3">5-day weather forecast</h2>
             <div className="border border-gray-600 rounded-xl p-4">
               <div className="flex justify-between">
-                {dailyForecast.map((day) => {
+                {dailyForecast.map((day: any) => {
                   const date = new Date(day.dt_txt);
                   const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
                   return (
